@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <title>Guessing Game</title>
+    <style>
+        body, html{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(24, 24, 24);
+            font-size: 20px;
+            font-family: 'Inconsolata', monospace;
+        }
+        #container{
+            margin: auto;
+            height: 50vh;
+            width: 50vw;
+            padding: 2vw;
+            border: 3px solid rgb(91, 60, 2);
+            text-align: center;
+            background-color: aqua;  
+        }
+
+        h2{
+            font-size: xx-large;
+            color: orangered;
+        }
+        button{
+            margin: 3vh;
+            width: 7vw;
+            height: 5vh;
+            display: inline-block;
+            background-color: hsla(0, 0%, 100%, 0.75);
+            border-radius: 1px;
+            border-color: hsla(0, 0%, 100%, 0.75);
+            border-radius: 25px;
+            text-align: center;
+            font-size: smaller;
+            padding: 2px;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin-top: 5vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Score Card</h2>
+        <p>Congratulations! your new high score is 100!</p>
+        <button id="levelbtn">New Game</button>
+        <button id="exitbtn">Exit Game</button>
+    </div>
+
+    <script>
+        levelbtn.addEventListener('click', function(){
+            location.replace('guess.html');
+        })
+        exitbtn.addEventListener('click', function(){
+            location.replace('index.html');
+        })
+    </script>
+    
+</body>
+</html>

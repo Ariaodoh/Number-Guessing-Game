@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <title>Guessing Game</title>
+    <style>
+        body, html{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(24, 24, 24);
+            font-size: 20px;
+            font-family: 'Inconsolata', monospace;
+        }
+        #container{
+            margin: auto;
+            height: 50vh;
+            width: 50vw;
+            padding: 2vw;
+            border: 3px solid rgb(91, 60, 2);
+            text-align: center;
+            background-color: aqua;  
+        }
+
+        h2{
+            font-size: xx-large;
+            color: orangered;
+        }
+        #input{
+            width: 20vw;
+            height: 5vh;
+            margin-top: 4vh;
+            border: 2px solid orangered;
+            border-radius: 25px;
+        }
+        button{
+            margin: 3vh;
+            width: 7vw;
+            height: 5vh;
+            display: inline-block;
+            background-color: hsla(0, 0%, 100%, 0.75);
+            border-radius: 1px;
+            border-color: hsla(0, 0%, 100%, 0.75);
+            border-radius: 25px;
+            text-align: center;
+            font-size: smaller;
+            padding: 2px;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin-top: 5vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Level II</h2>
+        <p>Now, We've selected a number between 1 and 100, see if you can guess what number it is!</p>
+        <p id="output">Enter a number below</p>
+        <input type="number" id="input" required>
+        <br>
+        <button id="enterbtn">Enter</button>
+        <button id="levelbtn">Finish Game</button>
+    </div>
+
+    <script>
+        var enterbtn = document.getElementById('enterbtn');
+        var levelbtn = document.getElementById('levelbtn');
+        var output = document.getElementById('output');
+
+        var randomNumber = Math.ceil(Math.random()* 100);
+
+        function checkNumber(){
+            var input = document.getElementById('input').value;
+
+            if(input == randomNumber){
+                output.innerHTML = "You gessed right! " + "it was " + randomNumber;
+                output.style.color = "green";
+            }
+            else if(input > randomNumber && input < 101){
+                output.innerHTML = "You guessed too high!";
+                output.style.color = "red";
+            }
+            else if(input < randomNumber && input >= 1){
+                output.innerHTML = "You guessed too low!";
+                output.style.color = "red";
+            }
+            else if(input < 1){
+                output.innerHTML = "Higher, it has to be between 1 and 10";
+            }
+            else if (isNaN(input)){
+                output.innerHTML = "That's not a Number";
+            }
+            else{ 
+                output.innerHTML = "Lower, it has to be between 1 to 10";
+            }
+        }
+
+        enterbtn.addEventListener('click', checkNumber);
+        levelbtn.addEventListener('click', function(){
+            location.replace('scorecard.html');
+        })
+    </script>
+    
+</body>
+</html>
